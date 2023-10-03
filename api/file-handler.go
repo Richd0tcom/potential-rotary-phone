@@ -217,3 +217,8 @@ func ServeVideoData(ctx *fiber.Ctx) error {
 	return ctx.JSON(vid)
 	
 }
+
+func RedirectToDocs(ctx *fiber.Ctx) error {
+
+	return ctx.Redirect("https://github.com/Richd0tcom/potential-rotary-phone/blob/main/README.md")
+}

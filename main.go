@@ -31,6 +31,7 @@ func main() {
 	app.Post("/api/pre-upload", api.HandlePreUpload)
 	app.Post("/api/upload", api.HandleUpload)
 	app.Get("/api/video-details", api.ServeVideoData)
+	app.Get("/api/docs", api.RedirectToDocs)
 
 	log.Fatal(app.Listen(`:`+ port))
 }
