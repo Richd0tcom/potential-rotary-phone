@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"io"
+	// "io"
 	"os"
 
 	"github.com/Richd0tcom/potential-rotary-phone/utils"
@@ -45,13 +45,13 @@ func HandlePreUpload(ctx *fiber.Ctx) error {
 
 func HandleUpload(ctx *fiber.Ctx) error {
 
-	// stream := ctx.Body()
+	stream := ctx.Body()
 
-	stream, err:= io.ReadAll(ctx.Request().BodyStream())
+	// stream, err:= io.ReadAll(ctx.Request().BodyStream())
 
-	if err != nil {
-		return err
-	}
+	// if err != nil {
+	// 	return err
+	// }
 
 	fileName := ctx.Get("file-id")
 	extension:= ctx.Get("extension")
@@ -64,7 +64,7 @@ func HandleUpload(ctx *fiber.Ctx) error {
 		extension = "mp4"
 	}
 
-	_, err = os.Stat("./" + fileName+ "."+extension)
+	_, err := os.Stat("./" + fileName+ "."+extension)
 
 	dets := make(map[string]Video)
 
